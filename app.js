@@ -75,14 +75,24 @@ document.addEventListener("DOMContentLoaded", () => {
     const cards = document.querySelectorAll("img");
     const optionOneId = cardsChosenId[0];
     const optionTwoId = cardsChosenId[1];
-    if (cardsChosen[0] === cardsChosen[1]) {
+
+    // Condition for checking if same block has been chosen twice.
+    if (optionOneId === optionTwoId) {
+      cards[optionOneId].setAttribute("src", "images/blank.png");
+      cards[optionTwoId].setAttribute("src", "images/blank.png");
+      alert("Oops You just Clicked the Same Card Again!!");
+    }
+    // Condition When Cards Match Found
+    else if (cardsChosen[0] === cardsChosen[1]) {
       alert("You found a match");
       cards[optionOneId].setAttribute("src", "images/white.png");
       cards[optionTwoId].setAttribute("src", "images/white.png");
       cards[optionOneId].removeEventListener("click", flipCard);
       cards[optionTwoId].removeEventListener("click", flipCard);
       cardsWon.push(cardsChosen);
-    } else {
+    }
+    // Condition When Cards Match isn't Found
+    else {
       cards[optionOneId].setAttribute("src", "images/blank.png");
       cards[optionTwoId].setAttribute("src", "images/blank.png");
       alert("Sorry, try Again!!");
@@ -104,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
     cardsChosenId.push(cardId);
     this.setAttribute("src", cardArray[cardId].img);
     if (cardsChosen.length === 2) {
-      setTimeout(checkForMatch, 500);
+      setTimeout(checkForMatch, 200);
     }
   }
 
