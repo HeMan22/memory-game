@@ -1,7 +1,7 @@
 # Memory-Game
 A retro grid-based game in HTML, CSS and vanilla JavaScript.
 
-Live Demo: https://sharp-memory.netlify.app
+Play it here: https://sharp-memory.netlify.app
 
 ## Rules of Memory-Game
 - You will start by flipping over one card
